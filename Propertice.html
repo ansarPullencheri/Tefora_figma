@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navigation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .desk-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 20px;
+        font-size: 14px;
+        background-color: rgba(44, 58, 97, 1);
+      }
+
+      .desk-nav .left-content {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .desk-nav .right-content {
+        display: flex;
+        align-items: center;
+        gap: 45px;
+        margin-left: auto;
+        margin-right: 20px;
+      }
+
+      .desk-nav .right-content i {
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .desk-nav .right-content i:hover {
+        color: #007bff;
+      }
+
+      .desk-nav .separater-line {
+        height: 55px;
+        width: 1px;
+        background-color: rgba(255, 255, 255, 0.3);
+        margin: 0 20px;
+      }
+
+      .desk-nav .phone-content {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .desk-nav h6,
+      .desk-nav p {
+        margin: 0;
+        color: #fff;
+      }
+
+      .desk-nav i {
+        color: #fff;
+      }
+
+      @media (max-width: 992px) {
+        .desk-nav {
+          display: none !important;
+        }
+      }
+
+      @media (min-width: 993px) {
+        .navbar {
+          display: none !important;
+        }
+      }
+
+      .sec-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #fff;
+      }
+
+      .sec-section .sec-sec-cont {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .sec-section .sec-sec-cont a {
+        text-decoration: none;
+        color: #000;
+      }
+
+      @media (max-width: 992px) {
+        .sec-section {
+          display: none !important;
+        }
+      }
+
+      .propertice {
+        position: relative;
+        background-image: url("images/propertyimg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 120px 20px;
+        text-align: center;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .propertice::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(6, 48, 83, 0.7);
+        z-index: 1;
+      }
+
+      .propertice .proper-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .propertice h2 {
+        font-size: 48px;
+        margin-bottom: 10px;
+      }
+
+      .propertice p {
+        font-size: 18px;
+      }
+
+      .allproperty {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 45px 30px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .allproperty .left-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-left: 34px;
+      }
+
+      .allproperty .left-content img {
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .allproperty .left-content img:hover {
+        transform: scale(1.1);
+      }
+
+      .allproperty .left-content label {
+        font-size: 14px;
+        color: #555;
+      }
+
+      .allproperty .left-content select {
+        padding: 5px 10px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        outline: none;
+      }
+
+      .allproperty .right-content {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-right: 93px;
+      }
+
+      .allproperty .right-content a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .allproperty .right-content a:hover {
+        color: #007bff;
+      }
+
+      .segments-container {
+        padding: 40px;
+      }
+
+      .segments {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+
+      .segment-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 25px;
+        gap: 30px;
+        max-width: 1200px;
+        width: 100%;
+      }
+
+      .segment-left,
+      .segment-right {
+        flex: 1;
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .profile span {
+        font-weight: 500;
+        color: #333;
+      }
+
+      .icons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .icons i {
+        font-size: 16px;
+        background: #f2f2f2;
+        padding: 8px;
+        border-radius: 5%;
+        cursor: pointer;
+        transition: 0.3s;
+        color: rgba(6, 48, 83, 0.7);
+      }
+
+      .content h2 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 50px;
+        margin-bottom: 10px;
+        color: rgba(74, 96, 161, 1);
+      }
+
+      .content p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+
+      .content .readmore {
+        color: rgba(74, 96, 161, 1);
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .content .readmore:hover {
+        text-decoration: underline;
+      }
+
+      .content h1 {
+        color: rgba(74, 96, 161, 1);
+        font-size: 28px;
+        font-weight: 700;
+        margin-top: 15px;
+      }
+
+      .segment-2 {
+        position: relative;
+      }
+
+      .segment-2 img {
+        width: 90%;
+        height: 350px;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+
+      .p-1 {
+        width: 65%;
+        height: 65px;
+        display: flex;
+        justify-content: space-around;
+        margin-top: -80px;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+        margin-left: 200px;
+        margin-right: 20px;
+      }
+
+      .i-1 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #333;
+      }
+
+      .i-1 i {
+        color: rgba(6, 48, 83, 0.7);
+        font-size: 18px;
+      }
+
+      .i-1 h3 {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .navigation-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 40px 20px;
+        margin-top: 20px;
+      }
+
+      .navigation-button button {
+        padding: 12px 16px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        color: #333;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        min-width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .navigation-button button:hover {
+        background-color: rgba(74, 96, 161, 1);
+        color: #fff;
+        border-color: rgba(74, 96, 161, 1);
+      }
+
+      .navigation-button button:first-child,
+      .navigation-button button:last-child {
+        background-color: rgba(74, 96, 161, 0.1);
+        border-color: rgba(74, 96, 161, 0.3);
+      }
+
+      .navigation-button button i {
+        font-size: 12px;
+      }
+
+      .navigation-button button:nth-child(2) {
+        background-color: rgba(74, 96, 161, 1);
+        color: #fff;
+        border-color: rgba(74, 96, 161, 1);
+      }
+
+      @media (max-width: 768px) {
+        .allproperty {
+          padding: 30px 20px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .allproperty .left-content {
+          margin-left: 0;
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .allproperty .right-content {
+          margin-right: 0;
+          margin-top: 15px;
+          width: 100%;
+        }
+
+        .segments {
+          padding: 20px 0;
+        }
+
+        .segment-card {
+          flex-direction: column;
+          padding: 15px;
+          gap: 20px;
+        }
+
+        .segment-card.reverse {
+          flex-direction: column;
+        }
+
+        .segment-card .segment-left {
+          order: 1;
+        }
+
+        .segment-card .segment-right {
+          order: 2;
+        }
+
+        .segment-card.reverse .reverse-left {
+          order: 2;
+        }
+
+        .segment-card.reverse .reverse-right {
+          order: 1;
+        }
+
+        .segment-left,
+        .segment-right {
+          width: 100%;
+        }
+
+        .content h2 {
+          font-size: 18px;
+          margin-top: 30px;
+        }
+
+        .content h1 {
+          font-size: 24px;
+        }
+
+        .segment-2 img {
+          width: 100%;
+          height: 300px;
+        }
+
+        .p-1 {
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+          left: 10%;
+          margin-top: -60px;
+        }
+
+        .i-1 h3 {
+          font-size: 12px;
+        }
+
+        .i-1 i {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .segments-container {
+          padding: 15px 10px;
+        }
+
+        .allproperty {
+          padding: 20px 15px;
+        }
+
+        .allproperty .left-content {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-items: center;
+          gap: 8px;
+          width: 100%;
+        }
+
+        .allproperty .left-content img {
+          width: 20px;
+          height: 20px;
+          flex-shrink: 0;
+        }
+
+        .allproperty .left-content label {
+          font-size: 12px;
+          white-space: nowrap;
+          flex-shrink: 0;
+          margin: 0;
+        }
+
+        .allproperty .left-content select {
+          width: 40%;
+          font-size: 12px;
+          padding: 10px 8px;
+          border: none;
+          border-radius: 4px;
+          flex-shrink: 0;
+        }
+
+        .allproperty .right-content {
+          display: none;
+        }
+
+        .segment-card {
+          padding: 10px;
+        }
+
+        .top {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .icons {
+          align-self: flex-end;
+          margin-top: -30px;
+        }
+
+        .profile img {
+          width: 35px;
+          height: 35px;
+        }
+
+        .profile span {
+          font-size: 14px;
+        }
+
+        .content h2 {
+          font-size: 16px;
+          margin-top: 20px;
+        }
+
+        .content p {
+          font-size: 13px;
+        }
+
+        .content h1 {
+          font-size: 22px;
+        }
+
+        .segment-2 img {
+          height: 250px;
+        }
+
+        .p-1 {
+          width: 80%;
+          height: 50px;
+          padding: 10px;
+          margin-top: -63px;
+          left: 15%;
+          gap: 5px;
+        }
+
+        .i-1 {
+          flex-direction: column;
+          gap: 2px;
+          text-align: center;
+        }
+
+        .i-1 h3 {
+          font-size: 11px;
+        }
+
+        .i-1 i {
+          font-size: 14px;
+        }
+
+        .icons i {
+          font-size: 14px;
+          padding: 6px;
+        }
+
+        .navigation-button {
+          gap: 5px;
+          padding: 30px 15px;
+        }
+
+        .navigation-button button {
+          padding: 10px 12px;
+          font-size: 12px;
+          min-width: 40px;
+          height: 40px;
+        }
+
+        .navigation-button button i {
+          font-size: 10px;
+        }
+      }
+
+      footer {
+        background-color: #fff;
+        color: white;
+        padding: 60px 0 30px;
+        width: 100%;
+      }
+
+      .footer-wrapper {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .first-c {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .first-c img {
+        width: 150px;
+        height: 50px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+
+      .first-c h2 {
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        color: rgba(27, 29, 31, 1);
+      }
+
+      .first-c h4 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: -20px 0;
+      }
+
+      .first-c h5 {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #b0b0b0;
+        margin: 3px 0;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 12px;
+        margin-top: 15px;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 5%;
+        background: rgba(237, 239, 246, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon i {
+        font-size: 16px;
+        color: rgba(74, 96, 161, 1);
+      }
+
+      .second-c {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .second-c h2 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        color: #4a60a1;
+      }
+
+      .second-c h5 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #b0b0b0;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .second-c h5:hover {
+        color: #3498db;
+        padding-left: 5px;
+      }
+
+      @media (max-width: 992px) {
+        .footer-wrapper {
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-wrapper {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .first-c {
+          order: 4;
+          text-align: center;
+          align-items: center;
+        }
+
+        .second-c {
+          order: 1;
+          text-align: center;
+        }
+
+        .social-icons {
+          justify-content: center;
+        }
+      }
+
+      .footer-separater-line {
+        height: 1px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link disabled">Disabled</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="desk-nav">
+      <div class="left-content">
+        <i class="fa-solid fa-envelope"></i>
+        <h6>email: example@.com</h6>
+      </div>
+      <div class="right-content">
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-solid fa-earth-americas"></i>
+        <i class="fa-brands fa-linkedin-in"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-behance"></i>
+      </div>
+      <div class="separater-line"></div>
+      <div class="phone-content">
+        <i class="fa-solid fa-phone"></i>
+        <p>+1 234 567 890</p>
+      </div>
+    </header>
+
+    <div class="sec-section">
+      <div class="sec-sec-img">
+        <img src="images/Logo2.png" alt="logo" />
+      </div>
+      <ul class="sec-sec-cont">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">PROPERTIES</a></li>
+        <li><a href="#">PAGES</a></li>
+        <li><a href="#">BLOG</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </div>
+
+    <div class="propertice">
+      <div class="proper-content">
+        <h2>Properties</h2>
+        <p>Home / Properties</p>
+      </div>
+    </div>
+
+    <div class="allproperty">
+      <div class="left-content">
+        <img src="images/ListBullets.png" alt="List View" />
+        <img src="images/SquaresFour.png" alt="Grid View" />
+        <label for="sort-select">Sort by:</label>
+        <select id="sort-select">
+          <option value="">Default Order</option>
+        </select>
+      </div>
+      <div class="right-content">
+        <a href="#">All Properties</a>
+        <a href="#">For Buy</a>
+        <a href="#">For Sales</a>
+        <a href="#">For Rent</a>
+      </div>
+    </div>
+
+    <div class="segments-container">
+      <div class="segments">
+        <div class="segment-card">
+          <div class="segment-left">
+            <div class="top">
+              <div class="profile">
+                <img src="images/girl.jpg" alt="Profile" />
+                <span>Jenny Wilson</span>
+              </div>
+              <div class="icons">
+                <i class="fa-solid fa-share-nodes"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </div>
+            <div class="content">
+              <h2>92 ALLIUM PLACE, ORLANDO FL 32827</h2>
+              <p>
+                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                posuere cubilia curae; Proin sodales ultrices nulla blandit
+                volutpat.
+              </p>
+              <p>
+                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                posuere cubilia curae; Proin sodales ultrices nulla blandit
+                volutpat. Vestibulum ante ipsum primis in faucibus orci luctus
+                et ultrices posuere cubilia curae;...<span class="readmore"
+                  >read more</span
+                >
+              </p>
+              <h1>$ 590,693</h1>
+            </div>
+          </div>
+          <div class="segment-right">
+            <div class="segment-2">
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=500&h=350&fit=crop"
+                  alt="Property"
+                />
+              </div>
+              <div class="p-1">
+                <div class="i-1">
+                  <i class="fa-solid fa-car"></i>
+                  <h3>4</h3>
+                </div>
+                <div class="i-1">
+                  <i class="fa-solid fa-bath"></i>
+                  <h3>4</h3>
+                </div>
+                <div class="i-1">
+                  <i class="fa-solid fa-maximize"></i>
+                  <h3>2,096.00 ft</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="segments">
+        <div class="segment-card reverse">
+          <div class="segment-left reverse-left">
+            <div class="segment-2">
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&h=350&fit=crop"
+                  alt="Property"
+                />
+              </div>
+              <div class="p-1">
+                <div class="i-1">
+                  <i class="fa-solid fa-car"></i>
+                  <h3>3</h3>
+                </div>
+                <div class="i-1">
+                  <i class="fa-solid fa-bath"></i>
+                  <h3>3</h3>
+                </div>
+                <div class="i-1">
+                  <i class="fa-solid fa-maximize"></i>
+                  <h3>1,850.00 ft</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="segment-right reverse-right">
+            <div class="top">
+              <div class="profile">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face"
+                  alt="Profile"
+                />
+                <span>Robert Fox</span>
+              </div>
+              <div class="icons">
+                <i class="fa-solid fa-share-nodes"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </div>
+            <div class="content">
+              <h2>15 MAPLE STREET, MIAMI FL 33101</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <p>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                dolor in reprehenderit in voluptate velit esse cillum...<span
+                  class="readmore"
+                  >read more</span
+                >
+              </p>
+              <h1>$ 425,000</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="segments">
+        <div class="segment-card">
+          <div class="segment-left">
+            <div class="top">
+              <div class="profile">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
+                  alt="Profile"
+                />
+                <span>Sarah Miller</span>
+              </div>
+              <div class="icons">
+                <i class="fa-solid fa-share-nodes"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </div>
+            <div class="content">
+              <h2>78 OCEAN DRIVE, TAMPA FL 33602</h2>
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam.
+              </p>
+              <p>
+                Eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
+                quia voluptas sit aspernatur...<span class="readmore"
+                  >read more</span
+                >
+              </p>
+              <h1>$ 750,000</h1>
+            </div>
+          </div>
+          <div class="segment-right">
+            <div class="segment-2">
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&h=350&fit=crop"
+                  alt="Property"
+                />
+              </div>
+              <div class="p-1">
+                <div class="i-1">
+                  <i class="fa-solid fa-car"></i>
+                  <h3>5</h3>
+                </div>
+                <div class="i-1">
+                  <i class="fa-solid fa-bath"></i>
+                  <h3>4</h3>
+                </div>
+                <div class="i-1">
+                  <i class="fa-solid fa-maximize"></i>
+                  <h3>2,450.00 ft</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation-button">
+        <button><i class="fa-solid fa-arrow-left"></i></button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>...</button>
+        <button>54</button>
+        <button><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <div class="footer-separater-line"></div>
+
+    <footer>
+      <div class="footer-wrapper">
+        <div class="first-c">
+          <img src="images/logo2.png" alt="logo">
+          <h2>Contact Us</h2>
+          <h4>Call: +123 456 7890</h4>
+          <h5>
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+            posuere cubilia curae
+          </h5>
+          <h5>Email: info@dreamhome.com</h5>
+          <div class="social-icons">
+            <div class="social-icon">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="social-icon"><i class="fa-brands fa-twitter"></i></div>
+            <div class="social-icon">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="social-icon">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <div class="social-icon"><i class="fa-brands fa-youtube"></i></div>
+          </div>
+        </div>
+
+        <div class="second-c">
+          <h2>Features</h2>
+          <h5>Become a Host</h5>
+          <h5>Pricing</h5>
+          <h5>Home</h5>
+          <h5>Contact Us</h5>
+          <h5>Blog</h5>
+        </div>
+
+        <div class="second-c">
+          <h2>Company</h2>
+          <h5>About Us</h5>
+          <h5>Press</h5>
+          <h5>Resources</h5>
+          <h5>Careers</h5>
+          <h5>Partners</h5>
+        </div>
+
+        <div class="second-c">
+          <h2>Support</h2>
+          <h5>Help Center</h5>
+          <h5>Safety Center</h5>
+          <h5>Community</h5>
+          <h5>Terms of Service</h5>
+          <h5>Privacy Policy</h5>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
