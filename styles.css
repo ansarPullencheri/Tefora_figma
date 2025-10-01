@@ -178,6 +178,43 @@ body {
     font-size: 14px;
   }
 }
+@media (min-width: 1441px) {
+  .email{
+    margin-left: -600px;
+  }
+  .logo{
+    margin-left: -600px;
+  }
+  .nav-cont{
+    margin-right:-600px;
+  }
+  .media{
+    margin-right:-600px;
+  }
+  .hero-container {
+    height: 90vh;
+  }
+
+  .hero-content h1 {
+    margin-top: 100px;
+    font-size: 50px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    margin-top: 60px;
+  }
+
+  .custom-nav .nav-cont a {
+    margin-right: 15px;
+    font-size: 14px;
+  }
+
+  .custom-nav .contact-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
 @media (max-width: 1024px) {
   .email{
     margin-left: -10px;
